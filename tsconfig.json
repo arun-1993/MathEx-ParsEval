@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "declaration": true,
+        "esModuleInterop": true,
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": ".",
+        "rootDir": "src",
+        "strict": true,
+        "target": "ES6"
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["lib", "node_modules"]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "mathex-parseval",
+    "description": "A package that lets you tokenize, parse and evaluate math expressions",
+    "author": "Arun Ravindran <arun0306.r@gmail.com>",
+    "version": "1.0.0",
+    "license": "ISC",
+    "files": [
+        "lib",
+        "LICENSE.txt",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch"
+    },
+    "devDependencies": {
+        "typescript": "^5.7.3"
+    }
+}
