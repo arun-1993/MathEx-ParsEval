@@ -12,7 +12,7 @@ export class Expression {
     #expression: string = "";
     #tokenList: Token[] = [];
 
-    constructor(expression: string) {
+    constructor(expression: string = "") {
         this.setExpression(expression);
     }
 
@@ -106,29 +106,35 @@ export class Expression {
     }
 
     #tokenize() {
-        while (this.#index < this.#expression.length) {
-            const char = this.#peekNextChar();
+        try {
+            while (this.#index < this.#expression.length) {
+                const char = this.#peekNextChar();
 
-            if (isSpace(char)) {
-                this.#skipSpaces();
+                if (isSpace(char)) {
+                    this.#skipSpaces();
+                } else if (isIdentifierStart(char)) {
+                    this.#tokenList.push(this.#getIdentifier());
+                } else if (isNumber(char)) {
+                    this.#tokenList.push(this.#getNumber());
+                } else if (isOperator(char)) {
+                    this.#tokenList.push(this.#getOperator());
+                } else {
+                    throw new SyntaxError(
+                        `Invalid character "${char}" found in expression ${
+                            this.#expression
+                        } at position ${this.#index + 1}`
+                    );
+                }
             }
-
-            if (isIdentifierStart(char)) {
-                this.#tokenList.push(this.#getIdentifier());
-            }
-
-            if (isNumber(char)) {
-                this.#tokenList.push(this.#getNumber());
-            }
-
-            if (isOperator(char)) {
-                this.#tokenList.push(this.#getOperator());
-            }
+        } catch (err) {
+            if (err instanceof Error)
+                console.log(`${err.name}: ${err.message}`);
+            this.setExpression("");
         }
     }
 }
 
-const test = new Expression("5+6.73+7.1e2");
+const test = new Expression("x=5+6.73+7.1e2");
 
 console.log(test.getExpression());
 console.log(test.getTokenList());
