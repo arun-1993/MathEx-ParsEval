@@ -127,14 +127,15 @@ export class Expression {
                 }
             }
         } catch (err) {
-            if (err instanceof Error)
-                console.log(`${err.name}: ${err.message}`);
+            if (err instanceof Error) {
+                console.error(`${err.name}: ${err.message}`);
+            }
             this.setExpression("");
         }
     }
 }
 
-const test = new Expression("x=5+6.73+7.1e2");
+const test = new Expression("x@5+6.73+7.1e2");
 
 console.log(test.getExpression());
 console.log(test.getTokenList());
