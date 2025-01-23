@@ -8,11 +8,11 @@ import {
 } from "./utils";
 
 export class Expression {
-    #index: number = 0;
-    #expression: string = "";
+    #index = 0;
+    #expression = "";
     #tokenList: Token[] = [];
 
-    constructor(expression: string = "") {
+    constructor(expression = "") {
         this.setExpression(expression);
     }
 
