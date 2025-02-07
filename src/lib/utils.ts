@@ -1,28 +1,21 @@
-export function createToken(type: string, value: string): Token {
-    return { type, value };
-}
+const operatorList = ["+", "-", "*", "/", "(", ")"];
 
-export function isAlphabet(char: string): boolean {
-    return /[A-Za-z]/.test(char);
-}
+export const createToken = (type: string, value: string): Token => ({
+    type,
+    value,
+});
 
-export function isIdentifierPart(char: string): boolean {
-    return isAlphabet(char) || isNumber(char) || char === "_";
-}
+export const isAlphabet = (char: string): boolean => /[A-Za-z]/.test(char);
 
-export function isIdentifierStart(char: string): boolean {
-    return isAlphabet(char) || char === "_";
-}
+export const isIdentifierPart = (char: string): boolean =>
+    isAlphabet(char) || isNumber(char) || char === "_";
 
-export function isNumber(char: string): boolean {
-    return /[0-9]/.test(char);
-}
+export const isIdentifierStart = (char: string): boolean =>
+    isAlphabet(char) || char === "_";
 
-export function isOperator(char: string): boolean {
-    const operatorList = ["+", "-", "*", "/", "(", ")"];
-    return operatorList.includes(char);
-}
+export const isNumber = (char: string): boolean => /[0-9]/.test(char);
 
-export function isSpace(char: string): boolean {
-    return /\s/.test(char);
-}
+export const isOperator = (char: string): boolean =>
+    operatorList.includes(char);
+
+export const isSpace = (char: string): boolean => /\s/.test(char);
