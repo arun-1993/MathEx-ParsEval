@@ -12,11 +12,13 @@
     "scripts": {
         "build": "tsc",
         "dev": "tsc --watch",
-        "lint": "eslint src/**/*.ts"
+        "lint": "eslint src/**/*.ts",
+        "test": "tsx src/lib/expression.test.js"
     },
     "devDependencies": {
         "@eslint/js": "^9.18.0",
         "eslint": "^9.18.0",
+        "tsx": "^4.19.2",
         "typescript": "^5.7.3",
         "typescript-eslint": "^8.21.0"
     }
