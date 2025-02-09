@@ -12,6 +12,12 @@ export class Lexer {
     #index = 0;
     #tokenList: Token[] = [];
 
+    #getNextChar(): string {
+        return this.#index < this.#expression.length
+            ? this.#expression[this.#index++]
+            : "";
+    }
+
     #getNextIdentifier(): Token {
         let identifier = "";
         let nextChar;
@@ -24,13 +30,7 @@ export class Lexer {
         return createToken("Identifier", identifier);
     }
 
-    #getNextChar(): string {
-        return this.#index < this.#expression.length
-            ? this.#expression[this.#index++]
-            : "";
-    }
-
-    #getNumber(): Token {
+    #getNextNumber(): Token {
         let nextChar = this.#peekNextChar();
         let number = "";
 
@@ -67,7 +67,7 @@ export class Lexer {
         return createToken("Number", number);
     }
 
-    #getOperator(): Token {
+    #getNextOperator(): Token {
         return createToken("Operator", this.#getNextChar());
     }
 
@@ -99,9 +99,9 @@ export class Lexer {
             } else if (isIdentifierStart(char)) {
                 this.#tokenList.push(this.#getNextIdentifier());
             } else if (isNumber(char)) {
-                this.#tokenList.push(this.#getNumber());
+                this.#tokenList.push(this.#getNextNumber());
             } else if (isOperator(char)) {
-                this.#tokenList.push(this.#getOperator());
+                this.#tokenList.push(this.#getNextOperator());
             } else {
                 throw new SyntaxError(
                     `Invalid character "${char}" found in expression ${
