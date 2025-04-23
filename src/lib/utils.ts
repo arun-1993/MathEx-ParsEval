@@ -1,6 +1,6 @@
-const operatorList = ["+", "-", "*", "/", "(", ")"];
+const operatorList = ["+", "-", "*", "/", "(", ")", "=", ","] as const;
 
-export const createToken = (type: string, value: string): Token => ({
+export const createToken = (type: Token["type"], value: string): Token => ({
     type,
     value,
 });
@@ -16,6 +16,14 @@ export const isIdentifierStart = (char: string): boolean =>
 export const isNumber = (char: string): boolean => /[0-9]/.test(char);
 
 export const isOperator = (char: string): boolean =>
-    operatorList.includes(char);
+    (operatorList as readonly string[]).includes(char);
 
 export const isSpace = (char: string): boolean => /\s/.test(char);
+
+export const matchOperator = (
+    token: Token,
+    operator: (typeof operatorList)[number]
+): boolean =>
+    token !== undefined &&
+    token.type === "Operator" &&
+    token.value === operator;
