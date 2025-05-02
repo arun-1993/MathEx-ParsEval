@@ -4,6 +4,26 @@
     "author": "Arun Ravindran <arun0306.r@gmail.com>",
     "version": "1.0.0",
     "license": "ISC",
+    "main": "./lib/expression.js",
+    "keywords": [
+        "math",
+        "expression",
+        "parser",
+        "tokenizer",
+        "evaluator",
+        "AST",
+        "Abstract Syntax Tree",
+        "calculator",
+        "variables"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/arun-1993/MathEx-ParsEval"
+    },
+    "bugs": {
+        "url": "https://github.com/arun-1993/MathEx-ParsEval/issues",
+        "email": "arun0306.r@gmail.com"
+    },
     "files": [
         "lib",
         "LICENSE.txt",
