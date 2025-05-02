@@ -1,9 +1,9 @@
-type Token = {
+export type Token = {
     type: "Identifier" | "Number" | "Operator";
     value: string;
 };
 
-type ASTNode = {
+export type ASTNode = {
     assignment?: {
         name: { identifier: string };
         value: ASTNode;

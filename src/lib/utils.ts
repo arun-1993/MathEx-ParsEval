@@ -1,3 +1,5 @@
+import type { Token } from "./types";
+
 const operatorList = ["+", "-", "*", "/", "(", ")", "=", ","] as const;
 
 export const createToken = (type: Token["type"], value: string): Token => ({

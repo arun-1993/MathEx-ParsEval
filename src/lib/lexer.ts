@@ -1,3 +1,4 @@
+import type { Token } from "./types";
 import {
     createToken,
     isIdentifierPart,

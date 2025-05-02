@@ -1,3 +1,5 @@
+import type { ASTNode } from "./types";
+
 export class Evaluator {
     #ast: ASTNode = {};
 

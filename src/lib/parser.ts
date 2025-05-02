@@ -1,3 +1,4 @@
+import type { ASTNode, Token } from "./types";
 import { matchOperator } from "./utils";
 
 export class Parser {

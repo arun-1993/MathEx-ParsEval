@@ -1,6 +1,7 @@
 import { Evaluator } from "./evaluator";
 import { Lexer } from "./lexer";
 import { Parser } from "./parser";
+import type { ASTNode, Token } from "./types";
 
 export class Expression {
     #ast: ASTNode = {};
